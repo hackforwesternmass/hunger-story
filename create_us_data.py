@@ -53,13 +53,9 @@ dp = pd.concat([dp_2008, dp_2009, dp_2010, dp_2011, dp_2012])
 dp = dp[dp.geoid != 'Id']
 dp.set_index(['geoid','year'],inplace=True)
 
-#merge into one dataframe
+#merge into one dataframe, the split up by US and states, and save
 us = pd.concat([snap,dp],axis=1)
-
-#write out us totals
-
-
-#write out state totals
-
-
-
+states = us.iloc[us.index.get_level_values('geoid') <> '0100000US']
+us = us.iloc[us.index.get_level_values('geoid') == '0100000US']
+states.to_csv('data/us_state_indicators.csv')
+us.to_csv('data/us_indicators.csv')
