@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <script type="text/javascript">
+        google.load('visualization', '1', {'packages':['motionchart']});
+        function drawVisualization() {
+            google.visualization.drawChart({
+                "containerId": "visualization_div",
+                "dataSourceUrl": "https://docs.google.com/spreadsheets/d/1Vr1Ho_bQGMLqyhP5yN1ZL9k9ivpis0wiymgEqZtpsQc/edit#gid=1092289046",
+                "query": "SELECT A, B, C",
+                "chartType": "MotionChart",
+                "options": {
+                    "state": '{"yLambda":1,"playDuration":15000,"time":"2012","orderedByY":false,"colorOption":"_UNIQUE_COLOR","yZoomedIn":false,"xZoomedDataMax":1325376000000,"nonSelectedAlpha":0.4,"sizeOption":"_UNISIZE","yAxisOption":"2","xLambda":1,"uniColorForNonSelected":false,"iconKeySettings":[],"yZoomedDataMax":40,"xAxisOption":"_TIME","iconType":"LINE","xZoomedIn":false,"yZoomedDataMin":0,"duration":{"timeUnit":"Y","multiplier":1},"orderedByX":false,"dimensions":{"iconDimensions":["dim0"]},"showTrails":false,"xZoomedDataMin":662688000000}',
+                    "width": 960,
+                    "height": 500,
+                    "showYScalePicker": false
+                    }
+                });
+        }
+        google.setOnLoadCallback(drawVisualization);
+    </script>
+
+  </head>
+
+  <body>
+    <h1>Sample Google Motion Charts Embed</h1>
+    <div id="visualization_div"></div>
+  </body>
+</html>
