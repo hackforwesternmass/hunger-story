@@ -1,4 +1,4 @@
-"state_ansi","state_abbr","state_name","year","food_insecure_percent","food_insecure_percent_moe","food_insecure_low_percent","food_insecure_low_percent_moe"
+"fips","state_abbr","state_name","year","food_insecure_percent","food_insecure_percent_moe","food_insecure_low_percent","food_insecure_low_percent_moe"
 "02","AK","Alaska","2001","11.1","1.48","4.3","1.0"
 "01","AL","Alabama","2001","11.9","1.23","3.9","0.8"
 "05","AR","Arkansas","2001","12.8","1.69","3.9","1.1"
