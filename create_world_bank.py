@@ -33,8 +33,18 @@ indicator_list = [
 ]
 fs = all[all.indicator.isin(indicator_list)]
 
-#remove country names that represent aggregates
-#(see "Country" tab of the original indicators downloaded .xlsx for details)
+#create three DataFrames: individual countries, 
+#continent/regional aggregates, world aggregate
+#(see "Country" tab of the original indicators downloaded .xlsx 
+#country_code details)
+
+world = fs[fs.country_code.isin(['WLD'])]
+
+#continent/regional aggregates
+agg_list = ['ARB', 'CSS', 'EAS', 'EMU', 'LCN', 'MEA', 'PSS', 'SAS', 'SSF']
+agg = fs[fs.country_code.isin(agg_list)]
+
+#individual countries - remove country names that represent aggregates
 agg_country_code_list = [
     'ARB', 'CSS', 'EAS', 'EAP', 'CEA', 'EMU', 'ECS', 'ECA', 'CEU', 'EUU',
     'HPC', 'HIC', 'NOC', 'OEC', 'LCN', 'LAC', 'CLA', 'LDC', 'LMY', 'LIC',
@@ -45,7 +55,15 @@ fs = fs[~fs.country_code.isin(agg_country_code_list)]
 
 #reshape to put years in rows instead of columns
 fs = pd.melt(fs, id_vars=['country', 'country_code', 'indicator'], var_name = 'year')
+agg = pd.melt(agg, id_vars=['country', 'country_code', 'indicator'], var_name = 'year')
+world = pd.melt(world, id_vars=['country', 'country_code', 'indicator'], var_name = 'year')
 
 #reshape again to put indicators in columns instead of rows & save results
 fs = pd.pivot_table(fs, values='value', index=['country', 'country_code', 'year'], columns = ['indicator'])
+agg = pd.pivot_table(agg, values='value', index=['country', 'country_code', 'year'], columns = ['indicator'])
+world = pd.pivot_table(world, values='value', index=['country', 'country_code', 'year'], columns = ['indicator'])
+
+#write files
 fs.to_csv('data/world_development_indicators.csv', cols=indicator_list)
+agg.to_csv('data/world_development_indicators_agg.csv', cols=indicator_list)
+world.to_csv('data/world_development_indicators_world.csv', cols=indicator_list)
