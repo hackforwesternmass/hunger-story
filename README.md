@@ -1,7 +1,7 @@
 The Story of Hunger
 ===================
 
-Visualizing and telling the story of hunger
+This is a project to visualize and tell the story of hunger by the STEM group at Girls, Inc. of Holyoke created at Hack for Western Mass 2014.
 
 The results of our work are here:
 http://hackforwesternmass.github.io/hunger-story
