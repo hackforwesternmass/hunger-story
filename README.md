@@ -1,7 +1,10 @@
-hunger-story
-============
+The Story of Hunger
+===================
 
 Visualizing and telling the story of hunger
+
+The results of our work are here:
+http://hackforwesternmass.github.io/hunger-story
 
 See this project's hackpad for more information about:
 
